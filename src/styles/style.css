@@ -1,0 +1,110 @@
+:root {
+  --primary: #bb86fc;
+  --primary-variant: #3700b3;
+  --secondary: #03dac6;
+  --background: #121212;
+  --surface: #121212;
+  --error: #cf6679;
+  --warning: #f39c12;
+  --on-background: #ffffff;
+  --on-background-grey: #c7c7c7;
+  --on-surface: #ffffff;
+}
+
+[data-theme="light"] {
+  --background: #dddddd;
+  --suface: #ffffff;
+  --on-background: #333333;
+  --on-background-grey: #6d6d6d;
+  --on-surface: #333333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--warning);
+}
+
+body {
+  font-family: "Figtree", sans-serif;
+  background-color: var(--background);
+}
+
+.app-container {
+  color: var(--on-background);
+  background-color: var(--background);
+  min-height: 100vh;
+  transition: all ease-in-out 0.5s;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--on-background);
+}
+
+header h1 {
+  flex: 1;
+}
+
+header .navigation ul {
+  display: flex;
+}
+
+header .navigation ul li {
+  display: inline-block;
+  font-size: 24px;
+  margin: 0 8px;
+  line-height: 36px;
+}
+
+header h1 a:hover,
+header .navigation ul li a:hover,
+header .navigation ul li button:hover {
+  color: var(--warning);
+}
+
+main {
+  margin: 0 auto;
+  padding: 32px 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.resources > h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.resources h3 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.resources ul {
+  padding-inline-start: 2.5rem;
+}
+
+.resources ul li {
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 26px;
+  margin-bottom: 15px;
+}
+
+.publisher {
+  margin-left: 0.5rem;
+}
+
+.recommended {
+  margin-left: 1rem;
+}

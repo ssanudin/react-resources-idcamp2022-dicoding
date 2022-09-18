@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { getResources } from "./utils/data-resources";
 
-function App() {
+const Resource = ({ resource }) => {
+  const { resource: res, title } = resource;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <section className={`resource`}>
+      <h3>{title}</h3>
+      <ul>
+        {res.map((r) => {
+          return (
+            <li>
+              <a href={r.url} target="_blank" rel="noreferrer">
+                {r.title}
+              </a>
+              {r.publisher && (
+                <span className="publisher">{`by ${r.publisher}`}</span>
+              )}
+              {r.recommended && (
+                <span className="recommended">{`(recommended)`}</span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+};
+
+const App = () => {
+  const resources = getResources();
+
+  return (
+    <div className="app-container">
+      <header>
+        <h1>React - IDCamp 2022 Resources</h1>
       </header>
+      <main>
+        <section className="resources">
+          <h2>Resources List</h2>
+          {resources.map((resource) => (
+            <Resource resource={resource} />
+          ))}
+        </section>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
