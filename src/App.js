@@ -8,15 +8,16 @@ const Resource = ({ resource }) => {
     <section className={`resource`}>
       <h3>{title}</h3>
       <ul>
-        {res.map((r) => {
+        {res.map((r, i) => {
           return (
-            <li>
+            <li key={i}>
               <a href={r.url} target="_blank" rel="noreferrer">
                 {r.title}
               </a>
               {r.publisher && (
                 <span className="publisher">{`by ${r.publisher}`}</span>
               )}
+              {r.code && <code className="code">{`(code: ${r.code})`}</code>}
               {r.recommended && (
                 <span className="recommended">{`(recommended)`}</span>
               )}
@@ -39,8 +40,8 @@ const App = () => {
       <main>
         <section className="resources">
           <h2>Resources List</h2>
-          {resources.map((resource) => (
-            <Resource resource={resource} />
+          {resources.map((resource, i) => (
+            <Resource key={i} resource={resource} />
           ))}
         </section>
       </main>

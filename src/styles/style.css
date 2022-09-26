@@ -105,6 +105,11 @@ main {
   margin-left: 0.5rem;
 }
 
-.recommended {
+.recommended,
+.code {
   margin-left: 1rem;
+}
+
+.recommended {
+  color: var(--error);
 }
